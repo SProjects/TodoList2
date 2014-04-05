@@ -23,6 +23,10 @@ public class Task extends Model{
         return find.all();
     }
 
+    public static Task getTask(Long id) {
+        return find.ref(id);
+    }
+
     public static void create(Task task){
         task.save();
     }
