@@ -21,4 +21,10 @@ public class TasksApiController extends Controller{
         JsonNode tasksJson = Json.toJson(task);
         return ok(tasksJson);
     }
+
+    public static Result newTask(){
+        Task task = Json.fromJson(request().body().asJson(), Task.class);
+        Task.create(task);
+        return ok(Json.toJson(task));
+    }
 }
