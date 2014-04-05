@@ -1,5 +1,6 @@
 package controllers;
 
+
 import models.Task;
 import play.data.Form;
 import play.mvc.Controller;
@@ -7,7 +8,7 @@ import play.mvc.Result;
 
 public class Application extends Controller {
 
-    static Form<Task> taskForm = new Form<>(Task.class);
+    static Form<Task> taskForm = new Form<Task>(Task.class);
 
     public static Result index() {
         return redirect(routes.Application.tasks());
