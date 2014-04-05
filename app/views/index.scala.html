@@ -1,0 +1,41 @@
+@(allTasks: List[Task], taskForm: Form[Task])
+
+@import helper._
+@main("Task List") {
+
+<div class="ui two column relaxed grid">
+    <div class="column">
+        <div class="ui fluid form segment">
+            <h4 class="ui header">Enter New Task</h4>
+            @form(routes.Application.newTask()) {
+                <div class="field">
+                    @inputText(taskForm("title"),'_label -> "Title")
+                </div>
+                <div class="field">
+                    @textarea(field = taskForm("description"),args = 'rows -> 3, 'cols -> 50, '_label -> "Description")
+                </div>
+            <input class="ui blue button" type="submit" value="Create">
+            }
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui fluid form segment">
+            <h4 class="ui header">Task(s) <div class="circular ui button">@allTasks.size()</div></h4>
+            @for(task <- allTasks){
+                <h4 class="ui top attached header">
+                    @task.title
+                </h4>
+                <div class="ui segment attached">
+                    <p>@task.description</p>
+                </div>
+                <h4 class="ui bottom attached header">
+                    @form(routes.Application.deleteTask(task.id)) {
+                    <input class="tiny ui primary button" type="submit" value="Delete">
+                    }
+                </h4>
+            }
+        </div>
+    </div>
+</div>
+
+}
