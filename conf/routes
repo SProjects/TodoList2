@@ -14,6 +14,7 @@ POST    /tasks/:id/delete       controllers.Application.deleteTask(id: Long)
 GET     /api/tasks              controllers.TasksApiController.allTasks()
 GET     /api/tasks/:id          controllers.TasksApiController.task(id: Long)
 POST    /api/taskadd            controllers.TasksApiController.newTask()
+GET     /api/tasks/:id/delete   controllers.TasksApiController.deleteTask(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

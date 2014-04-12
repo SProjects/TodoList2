@@ -24,7 +24,7 @@ public class Task extends Model{
     }
 
     public static Task getTask(Long id) {
-        return find.ref(id);
+       return find.ref(id);
     }
 
     public static void create(Task task){

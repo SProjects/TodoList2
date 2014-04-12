@@ -27,4 +27,9 @@ public class TasksApiController extends Controller{
         Task.create(task);
         return ok(Json.toJson(task));
     }
+
+    public static Result deleteTask(Long id){
+        Task.delete(id);
+        return ok("Success!");
+    }
 }
